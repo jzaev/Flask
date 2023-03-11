@@ -1,0 +1,36 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="static\css\styles.css">
+{% endblock %}
+
+{% block title %}Add A New Cafe{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+
+      <h1>Add a new cafe into the database</h1>
+         <form method="POST" action="/add">
+             {{ form.hidden_tag() }}
+             {{ form.cafe.label }}<br> {{ form.cafe(size=100, maxlength=50, class="reg_form") }}<br>
+             {{ form.location.label }}<br> {{ form.location(size=100, maxlength=50, class="reg_form") }}<br>
+             {{ form.open.label }}<br> {{ form.open(size=100, maxlength=50, class="reg_form") }}<br>
+             {{ form.close.label }}<br> {{ form.close(size=100, maxlength=50, class="reg_form") }}<br>
+             {{ form.coffee.label }}<br> {{ form.coffee(maxlength=50, class="reg_form") }}<br>
+             {{ form.wifi.label }}<br> {{ form.wifi(maxlength=50, class="reg_form") }}<br>
+             {{ form.power.label }}<br> {{ form.power(maxlength=50, class="reg_form") }}<br><br>
+             {{ form.submit(size=50, class="reg_form") }}
+        </form>
+
+      <!-- This is where your WTForm will go -->
+
+	  <p class="space-above"><a href="/cafes">See all cafes</a></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
